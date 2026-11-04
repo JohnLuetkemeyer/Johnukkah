@@ -146,3 +146,43 @@
   });
   activateItem(0, false);
 })();
+
+(function () {
+  var countdown = document.getElementById('johnukkah-countdown');
+  if (!countdown) return;
+
+  // Dec. 18, 2026 at 10:00 a.m. Central Standard Time (UTC-6).
+  var firstLighting = new Date('2026-12-18T10:00:00-06:00');
+  var banner = countdown.closest('.countdown-banner');
+  var timer = null;
+
+  function plural(value, word) {
+    return value + ' ' + word + (value === 1 ? '' : 's');
+  }
+
+  function renderCountdown() {
+    var remaining = firstLighting.getTime() - Date.now();
+
+    if (remaining <= 0) {
+      countdown.innerHTML = '<strong class="countdown-values">🔥 The Johnukkah candle is lit. Let it glow!</strong>';
+      if (banner) banner.classList.add('is-lit');
+      if (timer) window.clearInterval(timer);
+      return;
+    }
+
+    var totalSeconds = Math.floor(remaining / 1000);
+    var days = Math.floor(totalSeconds / 86400);
+    var hours = Math.floor((totalSeconds % 86400) / 3600);
+    var minutes = Math.floor((totalSeconds % 3600) / 60);
+    var seconds = totalSeconds % 60;
+
+    countdown.innerHTML =
+      '<strong class="countdown-values">' +
+      plural(days, 'Day') + ' · ' + plural(hours, 'Hour') + ' · ' + plural(minutes, 'Minute') + ' · ' + plural(seconds, 'Second') +
+      '</strong>' +
+      '<span class="countdown-message">until the first Johnukkah candle is lit. <strong>Let it glow!</strong></span>';
+  }
+
+  renderCountdown();
+  timer = window.setInterval(renderCountdown, 1000);
+})();
