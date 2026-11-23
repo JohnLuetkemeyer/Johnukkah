@@ -1131,3 +1131,113 @@ html.js .stair.in .stair-line:nth-child(5) { transition-delay: 480ms; }
   .countdown-message { display: block; }
   .countdown-message { margin-top: 2px; }
 }
+
+
+/* ---------- music throughout Johnukkah ---------- */
+.chapter-rules .fan {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.chapter-rules .fan-card,
+.chapter-rules .fan-card:nth-child(n) {
+  position: static;
+  width: auto;
+  height: 390px;
+  left: auto;
+  top: auto;
+  transform: none;
+}
+.chapter-rules .fan-card svg { width: 52%; }
+.card-music { background: var(--sky); color: var(--navy); }
+
+.song-day {
+  margin-top: var(--space-4);
+  padding: 16px 18px 17px;
+  background: var(--navy);
+  color: var(--ivory);
+  border-left: 7px solid var(--red);
+}
+.song-kicker {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.song-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.12;
+  max-width: none;
+}
+.song-title span { color: var(--sky); font-weight: 500; }
+.song-quip {
+  margin-top: 5px;
+  font-size: var(--text-sm);
+  color: var(--sky-pale);
+  max-width: none;
+}
+
+.goods-teaser {
+  background: var(--red);
+  color: var(--ivory);
+  padding: clamp(4rem, 9vh, 6rem) var(--page-margin);
+  text-align: center;
+}
+.goods-teaser > * { max-width: 760px; margin-inline: auto; }
+.goods-kicker {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: var(--gold);
+}
+.goods-teaser h2 {
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  line-height: .98;
+  margin-top: var(--space-3);
+}
+.goods-teaser p:not(.goods-kicker) {
+  font-size: var(--text-lg);
+  margin-top: var(--space-5);
+}
+.goods-badge,
+.goods-shop-btn {
+  display: inline-block;
+  margin-top: var(--space-6);
+  padding: 10px 16px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+@media (max-width: 999px) {
+  .chapter-rules .fan {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .chapter-rules .fan-card,
+  .chapter-rules .fan-card:nth-child(n) {
+    flex: 0 0 min(82%, 340px);
+    height: 420px;
+    scroll-snap-align: start;
+  }
+}
+
+.goods-shop-btn {
+  text-decoration: none;
+  transition: background var(--transition-interactive), color var(--transition-interactive), transform var(--transition-interactive);
+}
+.goods-shop-btn:hover,
+.goods-shop-btn:focus-visible {
+  background: var(--ivory);
+  color: var(--red);
+  transform: translateY(-2px);
+}
