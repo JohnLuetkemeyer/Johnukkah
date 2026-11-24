@@ -1321,6 +1321,6 @@ html.js .stair.in .stair-line:nth-child(5) { transition-delay: 480ms; }
 /* Faster ticker on mobile */
 @media (max-width: 760px) {
   .ticker-track {
-    animation-duration: 25s;
+    animation-duration: 35s;
   }
 }
