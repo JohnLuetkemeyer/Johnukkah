@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Johnukkah — 12 Days of Friends, Sports, Cocktails & Music</title>
-<meta name="description" content="12 Days of Johnukkah: friends, sports, cocktails & music. Christmas stress was not invited, and it knows it. All times Central." />
+<title>Johnukkah 2026 — 12 Days of Johnukkah — Friends, Sports & Cocktails</title>
+<meta name="description" content="The official 12 Days of Johnukkah agenda: December 18–31, 2026, excluding December 24–25. Friends, sports and expertly mixed trouble. Christmas stress was not invited, and it knows it. All times Central." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='14' y='12' width='4' height='14' rx='2' fill='%23e8b64c'/%3E%3Cellipse cx='16' cy='8' rx='4' ry='6' fill='%23f6d98a'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://api.fontshare.com" />
 <link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
@@ -14,6 +14,16 @@
 </head>
 <body>
 <a class="skip-link" href="#agenda">Skip to the 12 Days of Johnukkah</a>
+  <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open Johnukkah menu" aria-controls="mobile-menu" aria-expanded="false">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+  </button>
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop" hidden></div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Johnukkah shortcuts" aria-hidden="true">
+    <div class="mobile-menu-head"><strong>JOHNUKKAH</strong><button class="mobile-menu-close" type="button" aria-label="Close Johnukkah menu">×</button></div>
+    <a href="#agenda"><span aria-hidden="true">📅</span><span>Agenda</span></a>
+    <a href="#rsvp"><span aria-hidden="true">✉️</span><span>RSVP</span></a>
+    <a href="#goods"><span aria-hidden="true">🛍️</span><span>Shop</span></a>
+  </nav>
 
 <section class="countdown-banner" id="top" aria-label="Countdown to Johnukkah">
   <p class="countdown-main" id="johnukkah-countdown" aria-live="polite">
@@ -640,7 +650,7 @@
     </div>
   </section>
 
-    <section class="goods-teaser" aria-labelledby="goods-title">
+    <section class="goods-teaser" id="goods" aria-labelledby="goods-title">
       <p class="goods-kicker">JOHNUKKAH GOODS</p>
       <h2 id="goods-title">Because apparently a made-up holiday eventually needs merch.</h2>
       <p>The gift shop nobody asked for is officially open. Hats, shirts and other highly unnecessary Johnukkah gear await.</p>

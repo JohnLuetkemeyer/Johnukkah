@@ -186,3 +186,33 @@
   renderCountdown();
   timer = window.setInterval(renderCountdown, 1000);
 })();
+
+
+(function () {
+  var toggle = document.getElementById('mobile-menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  var backdrop = document.getElementById('mobile-menu-backdrop');
+  if (!toggle || !menu || !backdrop) return;
+  var closeButton = menu.querySelector('.mobile-menu-close');
+  var links = Array.from(menu.querySelectorAll('a'));
+  function setMenu(open) {
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close Johnukkah menu' : 'Open Johnukkah menu');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    menu.classList.toggle('is-open', open);
+    backdrop.hidden = !open;
+    document.body.classList.toggle('mobile-menu-open', open);
+    window.requestAnimationFrame(function () { backdrop.classList.toggle('is-open', open); });
+    if (open) closeButton.focus();
+  }
+  function updateToggleVisibility() {
+    toggle.classList.toggle('is-visible', window.scrollY > 140 || toggle.getAttribute('aria-expanded') === 'true');
+  }
+  toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
+  closeButton.addEventListener('click', function () { setMenu(false); toggle.focus(); });
+  backdrop.addEventListener('click', function () { setMenu(false); });
+  links.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); } });
+  window.addEventListener('scroll', updateToggleVisibility, { passive: true });
+  updateToggleVisibility();
+})();
