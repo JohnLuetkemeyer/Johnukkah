@@ -1311,3 +1311,9 @@ html.js .stair.in .stair-line:nth-child(5) { transition-delay: 480ms; }
   .quick-nav-menu a:focus-visible { background: var(--red); color: var(--ivory); }
   #agenda, #rsvp, #goods { scroll-margin-top: 66px; }
 }
+/* Faster ticker on mobile */
+@media (max-width: 760px) {
+  .ticker-track {
+    animation-duration: 18s;
+  }
+}
