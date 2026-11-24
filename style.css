@@ -721,11 +721,13 @@ img {
 
 .ticker-track {
   display: flex;
+  width: max-content;
   white-space: nowrap;
   animation: ticker-scroll 40s linear infinite;
 }
 
 .ticker-track span {
+  flex-shrink: 0;
   font-family: var(--font-display);
   font-weight: 500;
   font-size: 1.25rem;
@@ -733,7 +735,12 @@ img {
 }
 
 @keyframes ticker-scroll {
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ---------- footer ---------- */
